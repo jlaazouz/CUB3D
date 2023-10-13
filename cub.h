@@ -6,7 +6,7 @@
 /*   By: jlaazouz <jlaazouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:22:29 by jlaazouz          #+#    #+#             */
-/*   Updated: 2023/10/12 20:44:06 by jlaazouz         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:51:14 by jlaazouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,20 +90,20 @@ typedef struct s_visuals
 typedef struct s_data
 {
 	char			**file;
+	size_t			file_len;
+	char			**visual_data;
 	char			**map_grid;
 	size_t			map_start;
-	size_t			map_len;
-	char			**visual_data;
-	size_t			max_len;
-	size_t			file_len;
+	size_t			map_collums ;
+	size_t			map_rows ;
 	size_t			visuals_len;
 	t_visuals		*visuals;
-	t_border		border;
 	t_player		player;
 
 }					t_data;
 
-////------ PARSING ------////
+////////////////////////////////------ PARSING ------////////////////////////////////
+
 int					ft_map_checks(t_data *cub, int ac, char *map_name);
 int					ft_read_map(t_data *cub, char *map_name);
 int					fill_visual_data(t_data *cub);
@@ -140,5 +140,7 @@ int					ft_occurence_index(char *str, char c);
 void				double_print(char **str);
 
 int					ft_error(int type);
+
+////////////////////////////////------ RAY_CASTING (TMP) ------////////////////////////////////
 
 #endif
