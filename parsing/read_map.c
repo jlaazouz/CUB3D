@@ -6,7 +6,7 @@
 /*   By: jlaazouz <jlaazouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:06:14 by jlaazouz          #+#    #+#             */
-/*   Updated: 2023/10/13 12:37:43 by jlaazouz         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:10:34 by jlaazouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	store_necessary_info(t_data *cub, char *str)
 
 	tmp = ft_strtrim(str, "\n");
 	len = ft_strlen(tmp);
-	if (len > cub->map_rows )
-		cub->map_rows  = len + 1;
+	if (len > cub->map_collums )
+		cub->map_collums  = len + 1;
 	if (map_reached && len == 0)
 	{
 		free(tmp);
@@ -59,7 +59,7 @@ int	ft_read_map(t_data *cub, char *map_name)
 		free(str);
 		str = get_next_line(map_fd);
 	}
-	cub->map_collums  = cub->file_len - cub->map_start;
+	cub->map_rows  = cub->file_len - cub->map_start;
 	free(str);
 	close(map_fd);
 	return (EXIT_SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: jlaazouz <jlaazouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:25:47 by jlaazouz          #+#    #+#             */
-/*   Updated: 2023/10/12 21:41:13 by jlaazouz         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:26:07 by jlaazouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,28 @@ int	check_player_surrounding(t_data *cub)
 	return (EXIT_SUCCESS);
 }
 
+void	player_pos_direction(t_data *cub, int i, int j ,int *count)
+{
+	char player;
+
+	player = cub->map_grid[i][j];
+	if (player == 'N' || player == 'S'
+		|| player == 'W' || player == 'E')
+	{
+		if (player == 'N')
+			cub->player.facing_direction = NO;
+		else if (player == 'S')
+			cub->player.facing_direction = SO;
+		else if (player == 'E')
+			cub->player.facing_direction = EA;
+		else if (player == 'W')
+			cub->player.facing_direction = WE;
+		cub->player.x = j;
+		cub->player.y = i;
+		(*count)++;
+	}
+}
+
 int	ft_more_than_one_player(t_data *cub)
 {
 	int	i;
@@ -43,13 +65,7 @@ int	ft_more_than_one_player(t_data *cub)
 		j = 0;
 		while (cub->map_grid[i][j])
 		{
-			if (cub->map_grid[i][j] == 'N' || cub->map_grid[i][j] == 'S'
-				|| cub->map_grid[i][j] == 'W' || cub->map_grid[i][j] == 'E')
-			{
-				cub->player.x = j;
-				cub->player.y = i;
-				count++;
-			}
+			player_pos_direction(cub, i, j ,&count);
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: jlaazouz <jlaazouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:07:29 by jlaazouz          #+#    #+#             */
-/*   Updated: 2023/10/13 10:33:52 by jlaazouz         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:10:34 by jlaazouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@ int	fill_map_data(t_data *cub)
 	size_t	i;
 	size_t	j;
 
-	cub->map_grid = (char **)ft_calloc(cub->map_collums  + 1, sizeof(char *));
+	cub->map_grid = (char **)ft_calloc(cub->map_rows  + 1, sizeof(char *));
 	i = cub->map_start;
 	j = 0;
 	while (i < cub->file_len)
 	{
 		if (!is_whitespace(cub->file[i]))
 		{
-			cub->map_grid[j] = (char *)malloc(cub->map_rows  + 1 * sizeof(char));
-			cub->map_grid[j][cub->map_rows ] = 0;
-			ft_memset(cub->map_grid[j], ' ', cub->map_rows );
+			cub->map_grid[j] = (char *)malloc(cub->map_collums  + 1 * sizeof(char));
+			cub->map_grid[j][cub->map_collums ] = 0;
+			ft_memset(cub->map_grid[j], ' ', cub->map_collums );
 			ft_memcpy(cub->map_grid[j], cub->file[i], ft_strlen(cub->file[i]));
 		}
 		else
 		{
-			cub->map_grid[j] = (char *)malloc(cub->map_rows  + 1 * sizeof(char));
-			cub->map_grid[j][cub->map_rows ] = 0;
-			ft_memset(cub->map_grid[j], ' ', cub->map_rows );
+			cub->map_grid[j] = (char *)malloc(cub->map_collums  + 1 * sizeof(char));
+			cub->map_grid[j][cub->map_collums ] = 0;
+			ft_memset(cub->map_grid[j], ' ', cub->map_collums );
 		}
 		j++;
 		i++;

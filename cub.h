@@ -6,7 +6,7 @@
 /*   By: jlaazouz <jlaazouz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:22:29 by jlaazouz          #+#    #+#             */
-/*   Updated: 2023/10/13 11:51:14 by jlaazouz         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:18:39 by jlaazouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct s_player
 {
 	int				x;
 	int				y;
+	int				facing_direction;
 	int				rad;
 	double			m_speed;
 	int				t_dir;
